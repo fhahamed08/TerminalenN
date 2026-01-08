@@ -1,32 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta charset="UTF-8">
-  <title>Green Lab Access</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>N Univers</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="overlay">
-  <div class="access-box">
-    <h1>LAB ACCESS INITIALIZATION</h1>
+<div id="screen">
 
-    <label>MASTER NAME</label>
-    <input type="text" id="masterName" placeholder="Enter Master ID">
-
-    <label>PASSWORD</label>
-    <input type="password" id="password" placeholder="Enter Password">
-
-    <label>CONFIRM PASSWORD</label>
-    <input type="password" id="confirmPassword" placeholder="Confirm Password">
-
-    <button onclick="saveAccess()">SAVE & INITIALIZE</button>
-
-    <p id="msg"></p>
+  <!-- WELCOME SCREEN -->
+  <div id="welcome" class="center hidden">
+    <h1 class="glitch">WELCOME TO N UNIVERS</h1>
+    <p class="sub">Developed by Md Nishad</p>
   </div>
+
+  <!-- SETUP SCREEN -->
+  <div id="setup" class="box hidden">
+    <h2>INITIAL SETUP</h2>
+    <input type="password" id="setPass" placeholder="Set Password">
+    <input type="password" id="confirmPass" placeholder="Confirm Password">
+    <input type="text" id="masterKey" placeholder="Master Key Name">
+    <button onclick="saveSetup()">SAVE & INITIALIZE</button>
+    <p id="setupMsg"></p>
+  </div>
+
+  <!-- LOGIN SCREEN -->
+  <div id="login" class="box hidden">
+    <h2>TERMINAL ACCESS</h2>
+    <input type="password" id="loginPass" placeholder="Enter Password">
+    <button onclick="login()">ACCESS</button>
+    <p id="loginMsg"></p>
+  </div>
+
+  <!-- ANALYSIS -->
+  <div id="analysis" class="box hidden">
+    <h2>DATA ANALYSIS</h2>
+    <div id="progress">0%</div>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div id="dashboard" class="grid hidden">
+    <div class="panel">TERMINAL</div>
+    <div class="panel">NOTEPAD</div>
+    <div class="panel">GALLERY</div>
+    <div class="panel">SYSTEM</div>
+  </div>
+
 </div>
 
 <script src="script.js"></script>
 </body>
-</html>
+  </html>
