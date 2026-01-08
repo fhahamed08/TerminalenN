@@ -1,10 +1,11 @@
 const welcome = document.getElementById("welcome");
 const setup = document.getElementById("setup");
 const loginBox = document.getElementById("login");
-const analysis = document.getElementById("analysis");
-const dashboard = document.getElementById("dashboard");
+const terminal = document.getElementById("terminal");
 const result = document.getElementById("result");
+const dashboard = document.getElementById("dashboard");
 
+/* START */
 setTimeout(() => {
   welcome.classList.add("hidden");
   checkSetup();
@@ -18,6 +19,7 @@ function checkSetup() {
   }
 }
 
+/* SETUP */
 function saveSetup() {
   if (setPass.value !== confirmPass.value || !masterKey.value) {
     setupMsg.innerText = "SETUP FAILED";
@@ -29,37 +31,47 @@ function saveSetup() {
   loginBox.classList.remove("hidden");
 }
 
-function login() {
-  loginBox.classList.add("hidden");
-  analysis.classList.remove("hidden");
-
-  let i = 0;
-  const t = setInterval(() => {
-    i++;
-    progress.innerText = i + "%";
-    if (i === 100) {
-      clearInterval(t);
-      analysis.classList.add("hidden");
-      showResult();
-    }
-  }, 25);
+/* LOGIN */
+function startLogin() {
+  result.classList.add("hidden");
+  terminal.innerHTML = "";
+  fakeTerminal(() => checkPassword());
 }
 
-function showResult() {
+/* FAKE TERMINAL */
+function fakeTerminal(done) {
+  let lines = [
+    "Initializing system...",
+    "Bypassing firewall...",
+    "Decrypting access key...",
+    "Verifying credentials..."
+  ];
+  let i = 0;
+
+  let t = setInterval(() => {
+    terminal.innerHTML += lines[i] + "<br>";
+    i++;
+    if (i === lines.length) {
+      clearInterval(t);
+      done();
+    }
+  }, 400);
+}
+
+/* CHECK PASSWORD */
+function checkPassword() {
   result.classList.remove("hidden");
+
   if (loginPass.value === localStorage.getItem("password")) {
     result.className = "result allow";
     result.innerText = "ACCESS GRANTED";
     setTimeout(() => {
+      loginBox.classList.add("hidden");
       result.classList.add("hidden");
       dashboard.classList.remove("hidden");
     }, 1500);
   } else {
     result.className = "result deny";
     result.innerText = "ACCESS DENIED";
-    setTimeout(() => {
-      result.classList.add("hidden");
-      loginBox.classList.remove("hidden");
-    }, 1500);
   }
 }
