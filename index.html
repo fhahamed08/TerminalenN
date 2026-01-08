@@ -19,7 +19,7 @@
   <h2>INITIAL SETUP</h2>
   <input type="password" id="setPass" placeholder="Set Password">
   <input type="password" id="confirmPass" placeholder="Confirm Password">
-  <input type="text" id="masterKey" placeholder="Master Key Name">
+  <input type="text" id="masterKey" placeholder="Master Key">
   <button onclick="saveSetup()">SAVE</button>
   <p id="setupMsg"></p>
 </div>
@@ -27,15 +27,12 @@
 <!-- LOGIN -->
 <div id="login" class="box hidden">
   <p class="top">Developed by Md Nishad</p>
-  <h2>SECURE LOGIN</h2>
-  <input type="password" id="loginPass" placeholder="Enter Password">
-  <button onclick="login()">ACCESS</button>
-</div>
 
-<!-- ANALYSIS -->
-<div id="analysis" class="box hidden">
-  <h2>CODING...</h2>
-  <div id="progress">0%</div>
+  <!-- Fake terminal -->
+  <div id="terminal" class="terminal"></div>
+
+  <input type="password" id="loginPass" placeholder="Enter Password">
+  <button onclick="startLogin()">ENTER</button>
 </div>
 
 <!-- RESULT -->
@@ -51,4 +48,4 @@
 
 <script src="script.js"></script>
 </body>
-  </html>
+</html>
