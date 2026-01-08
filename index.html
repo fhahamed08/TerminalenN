@@ -8,46 +8,45 @@
 </head>
 <body>
 
-<div id="screen">
+<!-- WELCOME -->
+<div id="welcome" class="welcome">
+  <h1>WELCOME TO N UNIVERS</h1>
+  <p>Developed by Md Nishad</p>
+</div>
 
-  <!-- WELCOME SCREEN -->
-  <div id="welcome" class="center hidden">
-    <h1 class="glitch">WELCOME TO N UNIVERS</h1>
-    <p class="sub">Developed by Md Nishad</p>
-  </div>
+<!-- SETUP -->
+<div id="setup" class="box hidden">
+  <h2>INITIAL SETUP</h2>
+  <input type="password" id="setPass" placeholder="Set Password">
+  <input type="password" id="confirmPass" placeholder="Confirm Password">
+  <input type="text" id="masterKey" placeholder="Master Key Name">
+  <button onclick="saveSetup()">SAVE</button>
+  <p id="setupMsg"></p>
+</div>
 
-  <!-- SETUP SCREEN -->
-  <div id="setup" class="box hidden">
-    <h2>INITIAL SETUP</h2>
-    <input type="password" id="setPass" placeholder="Set Password">
-    <input type="password" id="confirmPass" placeholder="Confirm Password">
-    <input type="text" id="masterKey" placeholder="Master Key Name">
-    <button onclick="saveSetup()">SAVE & INITIALIZE</button>
-    <p id="setupMsg"></p>
-  </div>
+<!-- LOGIN -->
+<div id="login" class="box hidden">
+  <p class="top">Developed by Md Nishad</p>
+  <h2>SECURE LOGIN</h2>
+  <input type="password" id="loginPass" placeholder="Enter Password">
+  <button onclick="login()">ACCESS</button>
+</div>
 
-  <!-- LOGIN SCREEN -->
-  <div id="login" class="box hidden">
-    <h2>TERMINAL ACCESS</h2>
-    <input type="password" id="loginPass" placeholder="Enter Password">
-    <button onclick="login()">ACCESS</button>
-    <p id="loginMsg"></p>
-  </div>
+<!-- ANALYSIS -->
+<div id="analysis" class="box hidden">
+  <h2>CODING...</h2>
+  <div id="progress">0%</div>
+</div>
 
-  <!-- ANALYSIS -->
-  <div id="analysis" class="box hidden">
-    <h2>DATA ANALYSIS</h2>
-    <div id="progress">0%</div>
-  </div>
+<!-- RESULT -->
+<div id="result" class="result hidden"></div>
 
-  <!-- DASHBOARD -->
-  <div id="dashboard" class="grid hidden">
-    <div class="panel">TERMINAL</div>
-    <div class="panel">NOTEPAD</div>
-    <div class="panel">GALLERY</div>
-    <div class="panel">SYSTEM</div>
-  </div>
-
+<!-- DASHBOARD -->
+<div id="dashboard" class="grid hidden">
+  <div class="panel">TERMINAL</div>
+  <div class="panel">NOTEPAD</div>
+  <div class="panel">GALLERY</div>
+  <div class="panel">SYSTEM</div>
 </div>
 
 <script src="script.js"></script>
