@@ -3,15 +3,12 @@ const setup = document.getElementById("setup");
 const loginBox = document.getElementById("login");
 const analysis = document.getElementById("analysis");
 const dashboard = document.getElementById("dashboard");
+const result = document.getElementById("result");
 
 setTimeout(() => {
-  welcome.classList.remove("hidden");
-
-  setTimeout(() => {
-    welcome.classList.add("hidden");
-    checkSetup();
-  }, 3000);
-}, 500);
+  welcome.classList.add("hidden");
+  checkSetup();
+}, 2600);
 
 function checkSetup() {
   if (!localStorage.getItem("password")) {
@@ -22,41 +19,47 @@ function checkSetup() {
 }
 
 function saveSetup() {
-  const p1 = setPass.value;
-  const p2 = confirmPass.value;
-  const mk = masterKey.value;
-
-  if (!p1 || p1 !== p2 || !mk) {
+  if (setPass.value !== confirmPass.value || !masterKey.value) {
     setupMsg.innerText = "SETUP FAILED";
     return;
   }
-
-  localStorage.setItem("password", p1);
-  localStorage.setItem("master", mk);
-
+  localStorage.setItem("password", setPass.value);
+  localStorage.setItem("master", masterKey.value);
   setup.classList.add("hidden");
   loginBox.classList.remove("hidden");
 }
 
 function login() {
-  if (loginPass.value === localStorage.getItem("password")) {
-    loginBox.classList.add("hidden");
-    startAnalysis();
-  } else {
-    loginMsg.innerText = "OPERATION DENIED";
-  }
-}
-
-function startAnalysis() {
+  loginBox.classList.add("hidden");
   analysis.classList.remove("hidden");
+
   let i = 0;
-  const timer = setInterval(() => {
+  const t = setInterval(() => {
     i++;
     progress.innerText = i + "%";
-    if (i >= 100) {
-      clearInterval(timer);
+    if (i === 100) {
+      clearInterval(t);
       analysis.classList.add("hidden");
+      showResult();
+    }
+  }, 25);
+}
+
+function showResult() {
+  result.classList.remove("hidden");
+  if (loginPass.value === localStorage.getItem("password")) {
+    result.className = "result allow";
+    result.innerText = "ACCESS GRANTED";
+    setTimeout(() => {
+      result.classList.add("hidden");
       dashboard.classList.remove("hidden");
-    }
-  }, 30);
-    }
+    }, 1500);
+  } else {
+    result.className = "result deny";
+    result.innerText = "ACCESS DENIED";
+    setTimeout(() => {
+      result.classList.add("hidden");
+      loginBox.classList.remove("hidden");
+    }, 1500);
+  }
+}
