@@ -1,6 +1,6 @@
 * {
-  box-sizing: border-box;
   font-family: "Courier New", monospace;
+  box-sizing: border-box;
 }
 
 html, body {
@@ -11,59 +11,68 @@ html, body {
   touch-action: none;
 }
 
-.center {
+.hidden { display: none; }
+
+/* WELCOME */
+.welcome {
+  position: fixed;
+  bottom: -200px;
+  width: 100%;
   text-align: center;
+  animation: rise 2.5s forwards;
 }
 
-.hidden {
-  display: none;
+@keyframes rise {
+  to { bottom: 40%; }
 }
 
-.glitch {
-  font-size: 36px;
-  animation: flicker 1.5s infinite;
-}
-
-@keyframes flicker {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
-
-.sub {
-  color: #66ff99;
-  margin-top: 10px;
+.welcome h1 {
+  font-size: 32px;
 }
 
 .box {
   width: 300px;
-  margin: auto;
-  margin-top: 100px;
+  margin: 120px auto;
   padding: 20px;
   border: 1px solid #00ff66;
   background: rgba(0,255,100,0.05);
+  text-align: center;
 }
 
-input {
+input, button {
   width: 100%;
   padding: 10px;
-  margin: 10px 0;
+  margin-top: 10px;
   background: black;
   border: 1px solid #00ff66;
   color: #00ff66;
 }
 
-button {
-  width: 100%;
-  padding: 10px;
-  background: transparent;
-  border: 1px solid #00ff66;
-  color: #00ff66;
-  cursor: pointer;
+.top {
+  font-size: 12px;
+  margin-bottom: 5px;
 }
 
 #progress {
   font-size: 30px;
+}
+
+.result {
+  width: 300px;
+  margin: 120px auto;
+  padding: 20px;
   text-align: center;
+  border: 2px solid;
+}
+
+.result.deny {
+  color: red;
+  border-color: red;
+}
+
+.result.allow {
+  color: #00ff66;
+  border-color: #00ff66;
 }
 
 .grid {
