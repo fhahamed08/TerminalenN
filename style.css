@@ -3,80 +3,81 @@
   font-family: "Courier New", monospace;
 }
 
-body {
+html, body {
   margin: 0;
-  height: 100vh;
-  background: radial-gradient(circle at top, #001a12, #000);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #00ff9c;
-}
-
-.overlay {
-  width: 100%;
   height: 100%;
-  backdrop-filter: blur(6px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: black;
+  color: #00ff66;
+  touch-action: none;
 }
 
-.access-box {
-  width: 90%;
-  max-width: 420px;
-  padding: 25px;
-  background: rgba(0, 255, 156, 0.08);
-  border: 1px solid rgba(0, 255, 156, 0.5);
-  box-shadow: 0 0 25px rgba(0, 255, 156, 0.4);
-}
-
-.access-box h1 {
+.center {
   text-align: center;
-  font-size: 18px;
-  margin-bottom: 20px;
-  letter-spacing: 1px;
 }
 
-label {
-  font-size: 12px;
-  margin-top: 12px;
-  display: block;
+.hidden {
+  display: none;
+}
+
+.glitch {
+  font-size: 36px;
+  animation: flicker 1.5s infinite;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.sub {
+  color: #66ff99;
+  margin-top: 10px;
+}
+
+.box {
+  width: 300px;
+  margin: auto;
+  margin-top: 100px;
+  padding: 20px;
+  border: 1px solid #00ff66;
+  background: rgba(0,255,100,0.05);
 }
 
 input {
   width: 100%;
   padding: 10px;
-  margin-top: 6px;
-  background: rgba(0, 0, 0, 0.6);
-  border: 1px solid #00ff9c;
-  color: #00ff9c;
-  outline: none;
-}
-
-input::placeholder {
-  color: rgba(0, 255, 156, 0.4);
+  margin: 10px 0;
+  background: black;
+  border: 1px solid #00ff66;
+  color: #00ff66;
 }
 
 button {
   width: 100%;
-  margin-top: 20px;
-  padding: 12px;
+  padding: 10px;
   background: transparent;
-  border: 1px solid #00ff9c;
-  color: #00ff9c;
+  border: 1px solid #00ff66;
+  color: #00ff66;
   cursor: pointer;
-  letter-spacing: 2px;
-  transition: 0.3s;
 }
 
-button:hover {
-  background: rgba(0, 255, 156, 0.2);
-  box-shadow: 0 0 15px #00ff9c;
-}
-
-#msg {
-  margin-top: 12px;
+#progress {
+  font-size: 30px;
   text-align: center;
-  font-size: 12px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  padding: 20px;
+}
+
+.panel {
+  height: 150px;
+  border: 1px solid #00ff66;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,255,100,0.05);
 }
